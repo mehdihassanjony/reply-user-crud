@@ -1,0 +1,75 @@
+@import url(App.css);
+
+.username-section {
+  text-align: center;
+  background-color: white;
+  box-shadow: 0 0 10px rgb(136, 136, 136);
+  border-radius: 15px;
+  padding: 4rem 3rem;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.username-section h2 {
+  font-size: 2rem;
+}
+
+.username-small-text {
+  color: rgb(118, 117, 117);
+}
+
+.username-profile-cont img {
+  width: 5rem;
+  height: 5rem;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.username-input-cont {
+  width: 100%;
+  display: flex;
+  gap: 1rem;
+}
+
+.username-input {
+  padding: 0.7rem;
+  border: 1px solid rgb(183, 182, 182);
+  border-radius: 5px;
+  font-size: 1.2rem;
+  width: 100%;
+}
+
+.username-input:focus {
+  outline: none;
+}
+
+.username-btn-cont {
+  width: 100%;
+}
+
+.username-btn {
+  width: 100%;
+  padding: 0.5rem;
+  border-radius: 5px;
+  border: none;
+  background-color: rgb(45, 132, 255);
+  cursor: pointer;
+  color: white;
+  font-size: 1.2rem;
+}
+
+.username-btn:hover {
+  background-color: rgb(228, 63, 63);
+}
+
+.username-register-link {
+  color: rgb(221, 41, 41);
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+#profile-pic {
+  display: none;
+  cursor: pointer;
+}
