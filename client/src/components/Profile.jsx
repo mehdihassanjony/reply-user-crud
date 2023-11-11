@@ -19,6 +19,36 @@ function Profile() {
   const [profile, setProfile] = useState(userinfo.pic || "");
   const [bio, setBio] = useState(userinfo.bio || "");
 
+  const [profession, setProfession] = useState(userinfo.profession || "");
+  const [interests, setInterests] = useState(userinfo.interests || []);
+
+  const professionOptions = {
+    MarketingProfessional: [
+      "Growth Marketing",
+      "Digital Marketing",
+      "Product Marketing",
+      "Paid Marketing",
+      "Organic Marketing",
+    ],
+    Entrepreneur: [
+      "Startup Enthusiast",
+      "SME",
+      "Product Enthusiast",
+      "Product Leader",
+      "Product Owner",
+    ],
+    ContentCreator: ["Youtube", "Twitch", "Twitter", "Video Content"],
+  };
+
+  const handleProfessionChange = (selectedProfession) => {
+    setProfession(selectedProfession);
+    setInterests([]); // Clear previous interests when profession changes
+  };
+
+  const handleInterestChange = (selectedInterests) => {
+    setInterests(selectedInterests);
+  };
+
   const btnClick = async () => {
     const data = await updateProfile({
       firstname,
@@ -128,6 +158,40 @@ function Profile() {
           }}
         />
       </div>
+      {/* New Profession and Interests inputs */}
+      <div className="username-input-cont">
+        <select
+          className="username-input"
+          value={profession}
+          onChange={(e) => handleProfessionChange(e.target.value)}
+        >
+          <option value="">Select Profession</option>
+          <option value="MarketingProfessional">Marketing Professional</option>
+          <option value="Entrepreneur">Entrepreneur</option>
+          <option value="ContentCreator">Content Creator</option>
+        </select>
+      </div>
+      {profession && (
+        <div className="username-input-cont">
+          <label>Interests:</label>
+          <select
+            className="username-input"
+            multiple
+            value={interests}
+            onChange={(e) =>
+              handleInterestChange(
+                Array.from(e.target.selectedOptions, (option) => option.value)
+              )
+            }
+          >
+            {professionOptions[profession].map((interest) => (
+              <option key={interest} value={interest}>
+                {interest}
+              </option>
+            ))}
+          </select>
+        </div>
+      )}
       <div className="username-btn-cont">
         <button className="username-btn" onClick={btnClick}>
           Update
