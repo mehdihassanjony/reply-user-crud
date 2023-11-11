@@ -17,6 +17,7 @@ function Profile() {
   const [email, setEmail] = useState(userinfo.email || "");
   const [address, setAddress] = useState(userinfo.address || "");
   const [profile, setProfile] = useState(userinfo.pic || "");
+  const [bio, setBio] = useState(userinfo.bio || "");
 
   const btnClick = async () => {
     const data = await updateProfile({
@@ -25,6 +26,7 @@ function Profile() {
       mobile,
       email,
       address,
+      bio,
       pic: profile,
     });
     if (!data) {
@@ -112,6 +114,17 @@ function Profile() {
           placeholder="Address"
           onChange={(e) => {
             setAddress(e.target.value);
+          }}
+        />
+      </div>
+      {/* New Bio input */}
+      <div className="username-input-cont">
+        <textarea
+          className="username-input"
+          value={bio}
+          placeholder="Short Bio (max 50 words)"
+          onChange={(e) => {
+            setBio(e.target.value);
           }}
         />
       </div>

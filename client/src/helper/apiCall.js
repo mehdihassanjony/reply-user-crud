@@ -48,6 +48,7 @@ export async function updateProfile({
   mobile,
   email,
   address,
+  bio,
   pic,
 }) {
   try {
@@ -60,6 +61,7 @@ export async function updateProfile({
         mobile,
         email,
         address,
+        bio,
         pic,
       },
       {

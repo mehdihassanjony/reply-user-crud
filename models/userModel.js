@@ -29,6 +29,9 @@ const schema = mongoose.Schema({
   address: {
     type: String,
   },
+  bio: {
+    type: String,
+  },
   pic: {
     type: String,
     default: "",
