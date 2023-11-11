@@ -31,6 +31,18 @@ const schema = mongoose.Schema({
   },
   bio: {
     type: String,
+    validate: {
+      validator: function (value) {
+        // Custom validator function to count words
+        const wordCount = value.split(/\s+/).length;
+        return wordCount <= 50;
+      },
+      message: "Bio should have a maximum of 50 words.",
+    },
+  },
+
+  interest: {
+    type: [String],
   },
   pic: {
     type: String,
