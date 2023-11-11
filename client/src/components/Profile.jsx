@@ -176,7 +176,7 @@ function Profile() {
           <label>Interests:</label>
           <select
             className="username-input"
-            multiple
+            multiple // Allow multiple selections
             value={interests}
             onChange={(e) =>
               handleInterestChange(
